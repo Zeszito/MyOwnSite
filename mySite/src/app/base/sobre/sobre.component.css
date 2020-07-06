@@ -1,0 +1,11 @@
+.about__container--07 {
+  background-size: auto;
+  background-position: 0 center;
+  background-repeat: no-repeat;
+}
+
+.svgBack{
+  position: absolute;
+  z-index: -1;
+  height: 85%;
+}
