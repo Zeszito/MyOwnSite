@@ -12,6 +12,9 @@ import { PricesComponent } from './base/prices/prices.component';
 import { DemoComponent } from './base/demo/demo.component';
 import { CodeLanguagesComponent } from './base/code-languages/code-languages.component';
 import { FooterComponent } from './base/footer/footer.component';
+import { LinkdinAchivementComponent } from './base/linkdin-achivement/linkdin-achivement.component';
+import { GamejamsComponent } from './base/gamejams/gamejams.component';
+import { RedesSociaisComponent } from './base/redes-sociais/redes-sociais.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { FooterComponent } from './base/footer/footer.component';
     PricesComponent,
     DemoComponent,
     CodeLanguagesComponent,
-    FooterComponent
+    FooterComponent,
+    LinkdinAchivementComponent,
+    GamejamsComponent,
+    RedesSociaisComponent
   ],
   imports: [
     BrowserModule,

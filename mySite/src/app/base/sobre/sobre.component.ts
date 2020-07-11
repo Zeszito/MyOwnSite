@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HostListener } from '@angular/core';
+
 
 @Component({
   selector: 'app-sobre',
@@ -10,10 +12,38 @@ export class SobreComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    setTimeout(function () {
-      // Add the trigger class to the SVG
-      document.getElementById('startSocialImg').classList.add('start');
-    }, 1000);
   }
 
+  @HostListener('window:scroll', ['$event'])
+  onWindowScroll($event) {
+
+    if(this.inViewport()){
+      console.log("StarScoail");
+      document.getElementById('startSocialImg').classList.add('start');
+    }
+    else{
+      console.log("Out");
+      document.getElementById('startSocialImg').classList.remove('start');
+    }
+  }
+
+
+
+   inViewport() {
+
+    var el = document.getElementById('startSocialImg');
+    var r, html;
+
+    if ( !el || 1 !== el.nodeType ) { return false; }
+    html = document.documentElement;
+    r = el.getBoundingClientRect();
+
+    return ( !!r
+      && r.bottom >= 0
+      && r.right >= 0
+      && r.top <= html.clientHeight
+      && r.left <= html.clientWidth
+    );
+
+}
 }
