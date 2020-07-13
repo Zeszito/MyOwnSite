@@ -18,11 +18,11 @@ export class SobreComponent implements OnInit {
   onWindowScroll($event) {
 
     if(this.inViewport()){
-      console.log("StarScoail");
+
       document.getElementById('startSocialImg').classList.add('start');
     }
     else{
-      console.log("Out");
+
       document.getElementById('startSocialImg').classList.remove('start');
     }
   }

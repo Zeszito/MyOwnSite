@@ -5,15 +5,23 @@
     <div class="container contacts__container--02">
       <div class="row">
         <div class="col-md-6 col-xs-12">
-          <h2 class="contacts__title contacts__title--02">Contacta-me</h2>
-          <form action="path/to/api" method="post" class="contacts__form--02">
+          <h2 class="contacts__title contacts__title--02" *ngIf="emailState == 0">Contacta-me</h2>
+          <h2 class="contacts__title contacts__title--02" *ngIf="emailState == 1">A Enviar...</h2>
+          <h2 class="contacts__title contacts__title--02" *ngIf="emailState == 2">Erro, visto que isto é só front-end, talvez seja o server do serviço. Tente mais tarde.</h2>
+          <h2 class="contacts__title contacts__title--02 text-focus-in" *ngIf="emailState == 3">Enviado, respondo mal veja o email! Obrigado!</h2>
+
+          <form (submit)="sendEmail($event)"  *ngIf="emailState != 2 && emailState != 3"
+          [ngClass]="emailState == 1 ? 'slide-out-right' : '' ">
             <div class="contacts__form__inputs_box--02">
-              <input type="text" placeholder="nome" value="" name="NAME" class="contacts__form__input--02 input input--cloud-border input--white">
-              <input type="email" required placeholder="email" value="" name="EMAIL" class="contacts__form__input--02 input input--cloud-border input--white">
+              <input type="text" placeholder="nome" value="" name="from_name" class="contacts__form__input--02 input input--cloud-border input--white">
+              <input type="email" required placeholder="email" value="" name="from_email" class="contacts__form__input--02 input input--cloud-border input--white">
             </div>
-            <textarea required placeholder="mensagem" value="" name="MESSAGE" class="contacts__form_textarea--02 input input--cloud-border input--white"></textarea>
-            <button type="submit" class="contacts__form_button--02 button button--blue button--small-radius">send</button>
+            <textarea required placeholder="mensagem" value="" name="message_html" class="contacts__form_textarea--02 input input--cloud-border input--white"></textarea>
+            <button type="submit" class="contacts__form_button--02 button button--blue button--small-radius">Enviar</button>
           </form>
+
+
+
         </div>
         <div class="col-lg-3 col-md-5 col-md-offset-1 col-lg-offset-2 col-xs-12">
           <div class="contacts__info--02">

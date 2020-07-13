@@ -35,7 +35,7 @@ g,0<c.length&&(c=Aa[c[0]])&&(a.c[e]=c))}a.c[e]||(c=Aa[e])&&(a.c[e]=c);for(c=0;c<
 (function(global, $) {
 
     'use strict';
-	
+
 	window.addEventListener('load', function (){
 		if(window.location.hostname !== 'phoenix-star' + 'tup.com.s3' + '.amazonaws.com'){
 			//alert('You must buy a copy to use Phoenix Startup');
@@ -1945,148 +1945,6 @@ window.addEventListener('DOMContentLoaded', function (){
 	}());
 	// ===== END OF: presentation navigation
 
-	// START OF: email form =====
-	var emailSender = (function() {
-		var DOM = {
-			savingForm: $('.js-saving-form')
-		};
-		function sendData($formNode){
-			var $submitButton = $formNode.find($('.js-submit-button'));
-			var submitButtonValue = $formNode.find($('.js-submit-button')).text();
-			$submitButton.text(submitButtonValue + '...');
-
-			$.ajax({
-				url: "/send_mail.php",
-				type: 'POST',
-				data: $formNode.serialize(),
-			})
-				.done(function(response) {
-					console.log(response);
-					$('.js-popup__title--success').slideToggle();
-					$('.js-popup__title--initial').slideToggle();
-					
-					setTimeout(function(){
-						$('.js-popup__title--success').slideToggle();
-						$('.js-popup__title--initial').slideToggle();
-					}, 8000);
-				})
-				.fail(function(response) {
-					console.log("error");
-					alert('Internal error ;( Please, try sending a direct email: hello@ui-market.com');
-				})
-				.always(function(response) {
-					$submitButton.text(submitButtonValue);
-					console.log($formNode.serialize());
-				});
-		}
-
-		function saveEmail($formNode) {
-			$.ajax({
-				type: $formNode.attr('method'),
-				url: $formNode.attr('additionalAction'),
-				data: $formNode.serialize(),
-				cache: false,
-				dataType: 'json',
-				contentType: "application/json; charset=utf-8"
-			})
-				.done(function(data) {
-					if (data.result != "success") {
-					} else {
-					}
-					$formNode.find('.js-success-message').slideDown();
-				})
-				.fail(function(response) {
-				})
-				.always(function(response) {
-					console.log(response);
-				});
-		}
-		return {
-			bind: function () {
-				DOM.savingForm.on('submit', function(event) {
-					event.preventDefault();
-					sendData($(this));
-					saveEmail($(this));
-				});
-			}
-		}
-	})();
-	// ===== END OF: email form
-
-	// START OF: subscribe form =====
-	var subscribeForm = (function(){
-		var DOM = {
-			$form: $('.js-subscribe-form')
-		};
-		var bind = function () {
-			DOM.$form.on('submit', function(event) {
-				event.preventDefault();
-
-				register($(this));
-			});
-		};
-		function register($form) {
-			var $submitButton = $form.find($('.js-submit-button'));
-			var submitButtonValue = $form.find($('.js-submit-button')).val();
-			$submitButton.val(submitButtonValue + '...');
-
-			var $successMessage = $form.find('.js-success-message');
-			var $errorMessage = $form.find('.js-error-message');
-
-			var toggleDuration = 200; //ms
-
-			$.ajax({
-				type: $form.attr('method'),
-				url: $form.attr('action'),
-				data: $form.serialize(),
-				cache: false,
-				dataType: 'json',
-				contentType: "application/json; charset=utf-8"
-			})
-				.done(function(data) {
-					function trimCode(string) {
-						//cut off the mailchimp meta data code user doesn't need to see
-						if(string.indexOf('0 -') === 0){
-							return string.slice(4);
-						}else{
-							return string;
-						}
-					}
-					if (data.result != "success") {
-						console.log('err');
-						$errorMessage.slideUp(toggleDuration);
-						$successMessage.slideUp(toggleDuration);
-
-						setTimeout(function(){
-							$errorMessage.html(trimCode(data.msg));
-							$errorMessage.slideDown(toggleDuration);
-						}, toggleDuration);
-					} else {
-						$errorMessage.slideUp(toggleDuration, function () {
-							$successMessage.slideDown(toggleDuration);
-						})
-					}
-				})
-				.fail(function(response) {
-					$errorMessage.slideUp(toggleDuration);
-					$successMessage.slideUp(toggleDuration, function () {
-						$errorMessage.slideDown(toggleDuration, function () {
-							$errorMessage.html('Could not connect to the registration server. Please try again later.');
-						});
-					})
-				})
-				.always(function(response) {
-					console.log(response);
-					$submitButton.val(submitButtonValue);
-				});
-		}
-
-		return{
-			bind: bind
-		}
-	}());
-	// ===== END OF: subscribe form
-
 
 	// START OF: lightbox init =====
 	var lightboxPlugin = (function(){
@@ -2176,7 +2034,7 @@ window.addEventListener('DOMContentLoaded', function (){
 		filterizr.init();
 	}
 
-	subscribeForm.bind();
+//	subscribeForm.bind();
 	lightboxPlugin.init();
 	maps.init(document.querySelectorAll('.js-map'));
 });

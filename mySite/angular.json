@@ -28,7 +28,8 @@
               "src/assets/cssImported/Phoenix.css"
             ],
             "scripts": [
-              "src/assets/jsImport/main.js"
+              "src/assets/jsImport/main.js",
+              "node_modules/emailjs-com/dist/email.js"
             ]
           },
           "configurations": {
