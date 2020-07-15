@@ -79,3 +79,11 @@
     opacity: 1;
   }
 }
+.contacts__form_button--02{
+  background-color: #000;
+}
+
+.contacts__form_button--02:hover
+{
+  box-shadow: 1px 1px 9px rgba(251,196,3, 1);
+}

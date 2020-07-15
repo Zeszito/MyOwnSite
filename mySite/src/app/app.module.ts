@@ -15,6 +15,7 @@ import { FooterComponent } from './base/footer/footer.component';
 import { LinkdinAchivementComponent } from './base/linkdin-achivement/linkdin-achivement.component';
 import { GamejamsComponent } from './base/gamejams/gamejams.component';
 import { RedesSociaisComponent } from './base/redes-sociais/redes-sociais.component';
+import { MaxParentComponent } from './max-parent/max-parent.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { RedesSociaisComponent } from './base/redes-sociais/redes-sociais.compon
     FooterComponent,
     LinkdinAchivementComponent,
     GamejamsComponent,
-    RedesSociaisComponent
+    RedesSociaisComponent,
+    MaxParentComponent
   ],
   imports: [
     BrowserModule,
