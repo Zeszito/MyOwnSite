@@ -29,7 +29,7 @@
         </div>
       </div>
 
-      <div data-popup-name="video" class="popup popup--video js-popup">
-        <button title="close" class="popup__close_btn js-close-all-popups"></button>
-        <iframe src="https://www.youtube-nocookie.com/embed/iWMmqdUnKM0" frameborder="0" allowfullscreen class="popup__video_frame"></iframe>
+      <div data-popup-name="video" class="popup popup--video js-popup" >
+        <button title="close" class="popup__close_btn js-close-all-popups" (click)="stopVideo($event.path[2])"></button>
+        <iframe id ="MainFrameID" src="https://www.youtube-nocookie.com/embed/iWMmqdUnKM0" frameborder="0" allowfullscreen class="popup__video_frame"></iframe>
       </div>
