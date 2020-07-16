@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import emailjs, { EmailJSResponseStatus } from 'emailjs-com';
+import { CountApiService } from 'src/app/count-api.service';
 
 @Component({
   selector: 'app-footer',
@@ -10,11 +11,25 @@ import emailjs, { EmailJSResponseStatus } from 'emailjs-com';
 
 export class FooterComponent implements OnInit {
   emailState = 0;
-  constructor() { }
+
+  visitas: string ="A contar a visitas";
+
+  pathTo: CountApiService;
+  constructor(countService: CountApiService) {
+    this.pathTo = countService;
+    this.fetchNumber();
+  }
 
   ngOnInit(): void {
   }
 
+  fetchNumber() {
+    this.pathTo.doGetCount().subscribe(
+      (data) => {
+        this.visitas = data['value'];
+      }
+    );
+  }
   public sendEmail(e: Event) {
 
     e.preventDefault();

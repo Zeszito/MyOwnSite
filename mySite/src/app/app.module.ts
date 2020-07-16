@@ -17,6 +17,7 @@ import { GamejamsComponent } from './base/gamejams/gamejams.component';
 import { RedesSociaisComponent } from './base/redes-sociais/redes-sociais.component';
 import { MaxParentComponent } from './max-parent/max-parent.component';
 
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +37,7 @@ import { MaxParentComponent } from './max-parent/max-parent.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule
   ],
   providers: [],
