@@ -1,0 +1,44 @@
+.contents__image_box--01{
+  margin-left: -10%;
+}
+a{
+  color: #1b8bf9;
+}
+
+.features__title--05{
+  text-align: center;
+}
+
+
+.about--02{
+  -webkit-animation: action 1s infinite  alternate;
+  animation: action 1s infinite  alternate;
+}
+
+.about_content_box--02{
+  -webkit-animation: action2 1s infinite  alternate;
+  animation: action2 1s infinite  alternate;
+}
+
+
+.envolve{
+background-color: #E7E7E7;
+}
+
+@-webkit-keyframes action {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-10px); }
+}
+@keyframes action {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-10px); }
+}
+
+@-webkit-keyframes action2 {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(10px); }
+}
+@keyframes action2 {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(10px); }
+}

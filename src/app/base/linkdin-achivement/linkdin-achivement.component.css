@@ -1,0 +1,38 @@
+.row{
+  -webkit-animation: action3 2s infinite  alternate;
+animation: action3 2s infinite  alternate;
+}
+
+
+@-webkit-keyframes action3 {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-10px); }
+}
+@keyframes action3 {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-10px); }
+}
+
+
+a{
+  color: white !important;
+  -webkit-animation: text-shadow-drop-center2 1.6s infinite alternate both !important;
+  animation: text-shadow-drop-center2 1.6s infinite alternate both !important;
+}
+
+@-webkit-keyframes text-shadow-drop-center2 {
+  0% {
+    text-shadow: 0 0 0 rgba(255, 255, 255, 1);
+  }
+  100% {
+    text-shadow: 2px 2px 5px rgba(251,196,3, 1);
+  }
+}
+@keyframes text-shadow-drop-center2 {
+  0% {
+    text-shadow: 0 0 0 rgba(255, 255, 255, 1);
+  }
+  100% {
+    text-shadow: 2px 2px 5px rgba(251,196,3, 1);
+  }
+}
